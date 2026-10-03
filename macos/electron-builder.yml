@@ -1,0 +1,62 @@
+appId: io.shiyue.reader
+productName: 拾页
+copyright: 拾页
+asar: true
+extraMetadata:
+  dependencies: {}
+compression: maximum
+directories:
+  output: .build/electron
+  buildResources: .build/macos/assets
+files:
+  - desktop/**
+  - dist/index.html
+  - package.json
+  - '!node_modules/**'
+extraResources:
+  - from: .build/macos/ThirdPartyNotices.txt
+    to: ThirdPartyNotices.txt
+  - from: node_modules/electron/dist/LICENSES.chromium.html
+    to: ElectronChromiumLicenses.html
+  - from: LICENSE
+    to: LICENSE.txt
+mac:
+  category: public.app-category.productivity
+  icon: .build/macos/assets/AppIcon.icns
+  minimumSystemVersion: '13.0'
+  identity: '-'
+  entitlements: macos/electron-entitlements.plist
+  entitlementsInherit: macos/electron-entitlements.plist
+  notarize: false
+  hardenedRuntime: true
+  mergeASARs: true
+  darkModeSupport: true
+  extendInfo:
+    CFBundleDisplayName: 拾页
+    CFBundleDevelopmentRegion: zh_CN
+    CFBundleLocalizations: [zh_CN, en]
+    UTImportedTypeDeclarations:
+      - UTTypeIdentifier: net.daringfireball.markdown
+        UTTypeConformsTo: [public.plain-text]
+        UTTypeDescription: Markdown 文档
+        UTTypeTagSpecification:
+          public.filename-extension: [md, markdown, mdown]
+          public.mime-type: text/markdown
+    UTExportedTypeDeclarations:
+      - UTTypeIdentifier: io.shiyue.reading-archive
+        UTTypeConformsTo: [public.json]
+        UTTypeDescription: 拾页阅读存档
+        UTTypeTagSpecification:
+          public.filename-extension: [shiyue]
+          public.mime-type: application/vnd.shiyue.archive+json
+fileAssociations:
+  - ext: [md, markdown, mdown]
+    name: Markdown 文档
+    role: Viewer
+    rank: Alternate
+    mimeType: text/markdown
+  - ext: shiyue
+    name: 拾页阅读存档
+    role: Viewer
+    rank: Owner
+    mimeType: application/vnd.shiyue.archive+json

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+拾页阅读器.html
+.build/
+release/
+.codex/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example

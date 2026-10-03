@@ -1,0 +1,21 @@
+import os
+app = defines['app']
+assets = defines['assets']
+files = [app, defines['readme']]
+symlinks = {'Applications': '/Applications'}
+format = 'UDZO'
+filesystem = 'HFS+'
+volume_name = '拾页 ' + defines.get('version', '1.0.1')
+background = os.path.join(assets, 'installer-background.png')
+icon = os.path.join(assets, 'AppIcon.icns')
+window_rect = ((120, 120), (640, 560))
+icon_size = 112
+text_size = 15
+icon_locations = {'拾页.app': (175, 218), 'Applications': (465, 218), '安装说明.txt': (320, 375)}
+show_status_bar = False
+show_tab_view = False
+show_toolbar = False
+show_pathbar = False
+show_sidebar = False
+include_icon_view_settings = True
+include_list_view_settings = False
